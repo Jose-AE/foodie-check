@@ -16,11 +16,16 @@ function TabBarIcon(props: {
 export default function TabLayout() {
   return (
     <Tabs screenOptions={{}}>
+      <Tabs.Screen name="index" options={{ href: null }} />
+
       <Tabs.Screen
-        name="index"
+        name="menu"
         options={{
+          headerShown: false,
           title: "Tab One",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="cutlery" color={color} />
+          ),
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>

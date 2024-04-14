@@ -1,29 +1,7 @@
-import Product from "@/components/Product";
-import { ExampleProducts } from "@assets/data/Products";
-import { StyleSheet, View, Text } from "react-native";
+import { View, Text } from "react-native";
+import React from "react";
+import { Redirect } from "expo-router";
 
-const exampleProduct = ExampleProducts[0];
-
-export default function TabOneScreen() {
-  return (
-    <View>
-      <Product
-        image={exampleProduct.image}
-        name={exampleProduct.name}
-        price={exampleProduct.price}
-      />
-    </View>
-  );
+export default function index() {
+  return <Redirect href={"/menu/"} />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-});

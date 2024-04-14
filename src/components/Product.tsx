@@ -1,5 +1,13 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Pressable,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
+import { Link } from "expo-router";
 
 interface IProps {
   name: string;
@@ -7,24 +15,29 @@ interface IProps {
   image: string;
 }
 
-export default function Product(props: IProps) {
+export default function Product({ name, price, image }: IProps) {
   return (
-    <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={{
-          uri: props.image,
-        }}
-      />
-      <Text style={styles.title}>{props.name}</Text>
-      <Text style={styles.price}>{props.price}</Text>
-    </View>
+    <Link href={`/menu/${name}`} asChild>
+      <TouchableOpacity style={styles.container}>
+        <Image
+          style={styles.image}
+          source={{
+            uri: image,
+          }}
+          resizeMode="contain"
+        />
+        <Text style={styles.title}>{name}</Text>
+        <Text style={styles.price}>{price}</Text>
+      </TouchableOpacity>
+    </Link>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "gray",
+    flex: 1,
+    maxWidth: "50%",
+    backgroundColor: "white",
     padding: 10,
     borderRadius: 10,
   },
@@ -38,7 +51,8 @@ const styles = StyleSheet.create({
     color: "red",
   },
   image: {
-    width: 100,
-    height: 100,
+    borderRadius: 10,
+    width: "100%",
+    aspectRatio: 1,
   },
 });

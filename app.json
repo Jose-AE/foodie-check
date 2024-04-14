@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "foodie-check",
-    "slug": "foodie-check",
+    "name": "react-native-jobs-app",
+    "slug": "react-native-jobs-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
